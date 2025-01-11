@@ -55,7 +55,7 @@ def generate_listings(num_listings=10):
     few_shot_prompt = FewShotPromptTemplate(
         examples=examples,
         example_prompt=example_prompt,
-        prefix="Generate Berlin real estate listings which are unique and different from each other with the following format:",
+        prefix="Generate real estate listings which are at different locations in Berlin with the following format:",
         suffix="New Listing:\n\n{input}",
         input_variables=["input"],
         example_separator="\n\n"
@@ -88,6 +88,14 @@ def generate_listings(num_listings=10):
         # Write to CSV
         with open('berlin_listings.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=['Location', 'Price', 'Bedrooms', 'Bathrooms', 'Size', 'Description', 'Neighborhood'])
+            writer.writeheader()
+            writer.writerows(structured_listings)
+            # Add ID field to each listing
+            for i, listing in enumerate(structured_listings):
+                listing['ID'] = f'BER{str(i+1).zfill(4)}'
+                # Update the fieldnames to include 'ID' and rewrite the CSV file
+        with open('berlin_listings.csv', 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['ID', 'Location', 'Price', 'Bedrooms', 'Bathrooms', 'Size', 'Description', 'Neighborhood'])
             writer.writeheader()
             writer.writerows(structured_listings)
     return listings
