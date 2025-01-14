@@ -7,6 +7,7 @@ os.environ["OPENAI_API_BASE"] = "https://openai.vocareum.com/v1"
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.prompts.few_shot import FewShotPromptTemplate
+import json
 
 # Initialize chat model
 chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
@@ -55,7 +56,7 @@ def generate_listings(num_listings=10):
     few_shot_prompt = FewShotPromptTemplate(
         examples=examples,
         example_prompt=example_prompt,
-        prefix="Generate real estate listings which are at different locations in Berlin with the following format:",
+        prefix="Generate real estate listings which are at different locations in Berlin and are COMPLETELY UNIQUE in its PRICE, DESCRIPTION and Neighborhood with the following format:",
         suffix="New Listing:\n\n{input}",
         input_variables=["input"],
         example_separator="\n\n"
@@ -66,38 +67,30 @@ def generate_listings(num_listings=10):
         prompt = few_shot_prompt.format(input="")
         response = chat.predict(prompt)
         listings.append(response)
-       
-        # Convert listings to structured format
-        structured_listings = []
-        for listing in listings:
-            lines = listing.strip().split('\n')
-            listing_dict = {}
-            current_field = None
-            
-            for line in lines:
-                if line.strip():
-                    if ':' in line:
-                        field, value = line.split(':', 1)
-                        current_field = field.strip()
-                        listing_dict[current_field] = value.strip()
-                    elif current_field:
-                        listing_dict[current_field] = listing_dict.get(current_field, '') + ' ' + line.strip()
-            
-            structured_listings.append(listing_dict)
+    # Convert listings to structured format
+    structured_listings = []
+    for i, listing in enumerate(listings):
+        lines = listing.strip().split('\n')
+        listing_dict = {}
+        current_field = None
+        
+        # Add ID field
+        listing_dict['ID'] = f'BER{str(i+1).zfill(4)}'
+        
+        for line in lines:
+            if line.strip():
+                if ':' in line:
+                    field, value = line.split(':', 1)
+                    current_field = field.strip()
+                    listing_dict[current_field] = value.strip()
+            elif current_field:
+                listing_dict[current_field] = listing_dict.get(current_field, '') + ' ' + line.strip()
+        
+        structured_listings.append(listing_dict)
 
-        # Write to CSV
-        with open('berlin_listings.csv', 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=['Location', 'Price', 'Bedrooms', 'Bathrooms', 'Size', 'Description', 'Neighborhood'])
-            writer.writeheader()
-            writer.writerows(structured_listings)
-            # Add ID field to each listing
-            for i, listing in enumerate(structured_listings):
-                listing['ID'] = f'BER{str(i+1).zfill(4)}'
-                # Update the fieldnames to include 'ID' and rewrite the CSV file
-        with open('berlin_listings.csv', 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=['ID', 'Location', 'Price', 'Bedrooms', 'Bathrooms', 'Size', 'Description', 'Neighborhood'])
-            writer.writeheader()
-            writer.writerows(structured_listings)
+    # Write to JSON file
+    with open('berlin_listings.json', 'w', encoding='utf-8') as f:
+        json.dump(structured_listings, f, indent=4, ensure_ascii=False)
     return listings
 
 if __name__ == "__main__":
