@@ -190,22 +190,25 @@ def user_interface(preference_questions, preference_answers):
             "recommendations": properties_summary
         })
         
-        # Format final output
-        final_output = f"""
-        Top Recommended Property:
-        {top_listing['details']}
-        Rating: {top_listing['rating']}/{max_rating}
+        # Format final output with top 3 properties
+        final_output = "=== Top 3 Recommended Properties ===\n\n"
+        
+        for i, listing in enumerate(recommendations[:3], 1):
+            final_output += f"""
+            {'-'*80}
+            Recommendation #{i}:
+            {listing['details']}
 
-        Analysis:
-        {final_recommendation['text'] if isinstance(final_recommendation, dict) else final_recommendation}
-        """
+            Analysis:
+            {listing['analysis']}
+            {'-'*80}
+            """
         
         return final_output
-    
+        
     return "No suitable properties found"
 
 
 if __name__ == "__main__":
     recommendation = user_interface(preference_questions, preference_answers)
-    print("\nFinal Recommendation:")
     print(recommendation)
