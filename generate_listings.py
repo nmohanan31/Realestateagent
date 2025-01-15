@@ -1,6 +1,6 @@
 import os
-import csv
 
+# Set environment variables for OpenAI API
 os.environ["OPENAI_API_KEY"] = "voc-12568918961266773670401673e1acb29caf9.60086405"
 os.environ["OPENAI_API_BASE"] = "https://openai.vocareum.com/v1"
 
@@ -9,10 +9,10 @@ from langchain.prompts import PromptTemplate
 from langchain.prompts.few_shot import FewShotPromptTemplate
 import json
 
-# Initialize chat model
-chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+# Initialize chat model with specified parameters
+chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9, max_tokens=500)
 
-# Example template
+# Template for generating real estate listings
 example_template = """
 Location: {location}
 Price: {price}
@@ -48,15 +48,28 @@ examples = [
 ]
 
 def generate_listings(num_listings=10):
+    # Create a prompt template for the examples
     example_prompt = PromptTemplate(
         input_variables=["location", "price", "bedrooms", "bathrooms", "size", "description", "neighborhood"],
         template=example_template
     )
 
+    # Create a few-shot prompt template using the examples
     few_shot_prompt = FewShotPromptTemplate(
         examples=examples,
         example_prompt=example_prompt,
-        prefix="Generate real estate listings which are at different locations in Berlin and are COMPLETELY UNIQUE in its PRICE, DESCRIPTION and Neighborhood with the following format:",
+        prefix="""Generate real estate listings for different locations in Berlin, ensuring:
+        1. At least 5 different Berlin neighborhoods (including but not limited to: Mitte, Prenzlauer Berg, Kreuzberg, Charlottenburg, Friedrichshain)
+        2. EXACTLY 3 properties must have 3 bedrooms
+        3. Each listing must be COMPLETELY UNIQUE in terms of:
+           - Location
+           - Price
+           - Description
+           - Number of rooms
+           - Neighborhood details
+        4. NO duplicate listings or similar descriptions
+        
+        Use the following format:\n\n""",
         suffix="New Listing:\n\n{input}",
         input_variables=["input"],
         example_separator="\n\n"
@@ -64,9 +77,12 @@ def generate_listings(num_listings=10):
 
     listings = []
     for _ in range(num_listings):
+        # Format the prompt for generating a new listing
         prompt = few_shot_prompt.format(input="")
+        # Get the response from the chat model
         response = chat.predict(prompt)
         listings.append(response)
+    
     # Convert listings to structured format
     structured_listings = []
     for i, listing in enumerate(listings):
@@ -88,14 +104,8 @@ def generate_listings(num_listings=10):
         
         structured_listings.append(listing_dict)
 
-    # Write to JSON file
+    # Write the structured listings to a JSON file
     with open('berlin_listings.json', 'w', encoding='utf-8') as f:
         json.dump(structured_listings, f, indent=4, ensure_ascii=False)
+    
     return listings
-
-if __name__ == "__main__":
-    listings = generate_listings()
-    for i, listing in enumerate(listings, 1):
-        print(f"\nListing {i}:")
-        print(listing)
-        print("-" * 50)
