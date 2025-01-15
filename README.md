@@ -1,4 +1,4 @@
-# Real Estate Agent System
+# Real Estate Agent 
 
 An AI-powered real estate recommendation system that generates, personalizes, and matches property listings based on user preferences.
 
@@ -20,31 +20,35 @@ An AI-powered real estate recommendation system that generates, personalizes, an
 
 1. Clone the repository:
 
-git clone git@github.com:nmohanan31/Realestateagent.git
-cd RealestateAgent
+    git clone git@github.com:nmohanan31/Realestateagent.git
+
+    cd RealestateAgent
 
 2. Create and activate virtual environment:
-conda create -n vector_env python=3.10
-conda activate vector_env
+
+    conda create -n vector_env python=3.10\
+    conda activate vector_env
 
 3. Install required packages:
-pip install -r requirements.txt
+
+    pip install -r requirements.txt
 
 
 ## Configuration
 
 Set up OpenAI API credentials:
-xport OPENAI_API_KEY="your-api-key"
-export OPENAI_API_BASE="https://openai.vocareum.com/v1"
 
-## Project Structure
+    export OPENAI_API_KEY="your-api-key"
+    export OPENAI_API_BASE="https://openai.vocareum.com/v1"
 
-realestateAgent/
-├── realestate_agent.py       # Main orchestration
-├── generate_listings.py      # Listing generation
-├── listings_vector_database.py # Vector DB operations
-├── userinterface_and_search.py # Search interface
-└── personalising_listings.py  # Personalized descriptions of Top recommendations 
+## Main project files
+
+RealestateAgent\
+├── realestate_agent.py             # Main orchestration \
+├── generate_listings.py            # Listing generation \
+├── listings_vector_database.py     # Vector DB operations \
+├── userinterface_and_search.py     # Search interface \
+└── personalising_listings.py       # Personalized descriptions of Top recommendations 
 
 ## Usage
 
@@ -54,7 +58,7 @@ Run the main program:
 
 ## Sample output for check
 
-cat real_estate_output.txt
+    cat real_estate_output.txt
 
 ## Features Explained
 
