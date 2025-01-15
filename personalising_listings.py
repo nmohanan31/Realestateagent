@@ -1,36 +1,13 @@
-from typing import List, Dict, Tuple
-import openai
 import logging
-import lancedb
 import os
+import openai
+import lancedb
 
-# OpenAI setup
-os.environ["OPENAI_API_KEY"] = "voc-12568918961266773670401673e1acb29caf9.60086405"
-os.environ["OPENAI_API_BASE"] = "https://openai.vocareum.com/v1"
-openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_base = os.getenv("OPENAI_API_BASE")
+from typing import List, Dict, Tuple
 
-# Setup logging
+# Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# List of questions to gather user preferences
-preference_questions = [
-    "How big do you want your house to be?",
-    "What are 3 most important things for you in choosing this property?",
-    "Which amenities would you like?",
-    "Which transportation options are important to you?",
-    "How urban do you want your neighborhood to be?"
-]
-
-# Sample answers to the preference questions
-preference_answers = [
-    "A comfortable three-bedroom house with a spacious kitchen and a cozy living room.",
-    "A quiet neighborhood, good local schools, and convenient shopping options.",
-    "A backyard for gardening, a two-car garage, and a modern, energy-efficient heating system.",
-    "Easy access to a reliable bus line, proximity to a major highway, and bike-friendly roads.",
-    "A balance between suburban tranquility and access to urban amenities like restaurants and theaters."
-]
 
 def initialize_database():
     """Initialize database connection"""
@@ -47,7 +24,7 @@ def initialize_database():
         logger.error(f"Database initialization error: {str(e)}")
         raise
 
-def retrieve_top_recommendations() -> Tuple[List[Dict]]:
+def retrieve_top_recommendations(preference_questions, preference_answers) -> Tuple[List[Dict]]:
     """
     Retrieve top recommendations and associated preference data from LanceDB.
     """
@@ -86,7 +63,7 @@ def retrieve_top_recommendations() -> Tuple[List[Dict]]:
         logger.error(f"Error retrieving recommendations: {str(e)}")
         raise
 
-def personalize_property_descriptions(top_recommendations: List[Dict]) -> List[Dict]:
+def personalize_property_descriptions(preference_questions, preference_answers, top_recommendations: List[Dict]) -> List[Dict]:
     """Generate personalized descriptions using OpenAI"""
     augmented_recommendations = []
     
@@ -101,9 +78,14 @@ def personalize_property_descriptions(top_recommendations: List[Dict]) -> List[D
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "system", "content": "You are a professional real estate agent communicating to the user."},
+                    {"role": "system", "content": """You are a professional real estate agent. Your task is to:
+                    1. ONLY use facts directly stated in the original property description and property details
+                    2. DO NOT add any features or amenities that are not explicitly mentioned
+                    3. DO NOT incorporate buyer preferences unless they exactly match features mentioned in the property description
+                    4. Rewrite the description into a paragraph in a more elaborate and engaging style while maintaining 100% factual accuracy
+                    5. If uncertain about any detail, exclude it from the description"""},
                     {"role": "user", "content": f"""
-                        Property Details:
+                        Property Details (only include these if explicitly mentioned):
                         - Location: {property.get('location', 'N/A')}
                         - Size: {property.get('size', 'N/A')}
                         - Bedrooms: {property.get('bedrooms', 'N/A')}
@@ -111,14 +93,12 @@ def personalize_property_descriptions(top_recommendations: List[Dict]) -> List[D
                         
                         Original property description: {property.get('description', '')}
                         Neighborhood description: {property.get('neighborhood', '')}
-                        Buyer preferences: {preference_context}
                         
-                        Rewrite the property description to highlight features matching the buyer's preferences.
-                        Include relevant details about the property specifications and neighborhood.
-                        Keep it factual and dont add false details.
+                        Note: Below are buyer preferences for context only. DO NOT include these unless they exactly match features in the property description above:
+                        {preference_context}
                     """}
                 ],
-                temperature=0.3,
+                temperature=0.2,  # Reduced temperature for more consistent output
                 max_tokens=300
             )
             
@@ -132,6 +112,7 @@ def personalize_property_descriptions(top_recommendations: List[Dict]) -> List[D
             augmented_recommendations.append(property)
     
     return augmented_recommendations
+
 
 def display_augmented_recommendations(properties: List[Dict]) -> None:
     """Display formatted property recommendations"""

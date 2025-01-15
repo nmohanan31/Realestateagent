@@ -1,19 +1,18 @@
+import logging
 import pandas as pd
 import numpy as np
-from sentence_transformers import SentenceTransformer
-import warnings
-import logging
+import pyarrow as pa
 import lancedb
 import os
-import pyarrow as pa
 import shutil
 
-# Setup logging
+
+from sentence_transformers import SentenceTransformer
+
+
+# Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Ignore warnings
-warnings.filterwarnings('ignore')
 
 def load_and_prepare_data(file_path='berlin_listings.json'):
     try:
@@ -48,7 +47,10 @@ def create_embeddings(df):
             df['Description'].fillna('') + ' ' + 
             df['Location'].fillna('') + ' ' + 
             df['Neighborhood'].fillna('') + ' ' +
-            df['Bedrooms'].fillna('').astype(str) + ' '
+            df['Bedrooms'].fillna('').astype(str) + ' ' +
+            df['Bathrooms'].fillna('').astype(str) + ' ' +
+            df['Size'].fillna('').astype(str) + ' ' +
+            df['Price'].fillna('').astype(str) + ' '
         )
         
         # Validate input text

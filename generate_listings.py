@@ -1,53 +1,15 @@
-import os
-
-# Set environment variables for OpenAI API
-os.environ["OPENAI_API_KEY"] = "voc-12568918961266773670401673e1acb29caf9.60086405"
-os.environ["OPENAI_API_BASE"] = "https://openai.vocareum.com/v1"
-
+import json
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.prompts.few_shot import FewShotPromptTemplate
-import json
 
-# Initialize chat model with specified parameters
-chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9, max_tokens=500)
 
-# Template for generating real estate listings
-example_template = """
-Location: {location}
-Price: {price}
-Bedrooms: {bedrooms}
-Bathrooms: {bathrooms}
-Size: {size}
 
-Description: {description}
+def generate_listings_llm(example_template, examples ,num_listings=10):
 
-Neighborhood: {neighborhood}
-"""
+    # Initialize chat model with specified parameters
+    chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9, max_tokens=500)
 
-# Examples for few-shot learning
-examples = [
-    {
-        "location": "Prenzlauer Berg, Berlin",
-        "price": "€750,000",
-        "bedrooms": "3",
-        "bathrooms": "2",
-        "size": "120 sqm",
-        "description": "Charming pre-war apartment with high ceilings and modern amenities. Renovated kitchen and bathrooms. Balcony with garden views. Parking space included.",
-        "neighborhood": "Trendy area with cafes and parks. The U-bhan station is a 5-minute walk away. Tram stop right outside the building."
-    },
-    {
-        "location": "Mitte, Berlin",
-        "price": "€950,000",
-        "bedrooms": "4",
-        "bathrooms": "2.5",
-        "size": "150 sqm",
-        "description": "Luxury penthouse with panoramic city views and private terrace. High-end finishes and designer furniture. Concierge service and fitness center in the building. Parking available.",
-        "neighborhood": "Central location with excellent transport links. The S-bhan station is a 10-minute walk away. Bus stop right outside the building."
-    }
-]
-
-def generate_listings(num_listings=10):
     # Create a prompt template for the examples
     example_prompt = PromptTemplate(
         input_variables=["location", "price", "bedrooms", "bathrooms", "size", "description", "neighborhood"],
