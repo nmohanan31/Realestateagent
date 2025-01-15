@@ -1,0 +1,586 @@
+python realestate_agent.py 
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device_name: cuda
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+
+Listing 1:
+Location: Friedrichshain, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1.5
+Size: 100 sqm
+
+Description: Bright and spacious loft-style apartment with industrial design elements. Open concept living area with exposed brick walls and large windows. Balcony overlooking the courtyard. 
+
+Neighborhood: Vibrant area known for its nightlife and street art. Close to popular cafes, restaurants, and boutiques. The U-bahn and S-bahn stations are within walking distance.
+
+
+Location: Kreuzberg, Berlin
+Price: €800,000
+Bedrooms: 2
+Bathrooms: 2
+Size: 130 sqm
+
+Description: Modern duplex apartment with floor-to-ceiling windows and a rooftop terrace. Open kitchen with top-of-the-line appliances. Smart home technology and integrated sound system. 
+
+Neighborhood: Hip neighborhood with a diverse community and cultural events. Easy access to public transportation, parks, and trendy bars. Bike lanes throughout the area.
+
+
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Bedrooms: 3
+Bathrooms: 2
+Size: 160 sqm
+
+Description: Elegant pre-war mansion with a private garden and original architectural details. Spacious rooms with parquet floors and high ceilings. Separate guest suite with ensuite bathroom. 
+
+Neighborhood: Upscale area with tree-lined streets and luxury boutiques. Close to the Tiergarten park and the Charlottenburg Palace. Fine dining restaurants and art galleries nearby.
+--------------------------------------------------
+
+Listing 2:
+Location: Friedrichshain, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1
+Size: 100 sqm
+
+Description: Cozy family home with spacious living areas and lots of natural light. Recently renovated kitchen and bathroom. Private backyard garden perfect for entertaining. 
+
+Neighborhood: Vibrant area known for its nightlife and creative scene. Close to public transportation, parks, and trendy cafes. Grocery stores and restaurants within walking distance.
+--------------------------------------------------
+
+Listing 3:
+Location: Kreuzberg, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1.5
+Size: 100 sqm
+
+Description: Stylish loft apartment in a converted industrial building. Open floor plan with exposed brick walls and high ceilings. Modern kitchen with stainless steel appliances. Large windows provide plenty of natural light.
+
+Neighborhood: Vibrant area known for its street art, nightlife, and cultural diversity. Short walk to trendy bars and restaurants. Close to public transportation options.
+--------------------------------------------------
+
+Listing 4:
+Location: Kreuzberg, Berlin
+Price: €600,000
+Bedrooms: 2
+Bathrooms: 1
+Size: 90 sqm
+
+Description: Modern loft-style apartment with open floor plan and industrial chic design. Floor-to-ceiling windows offer plenty of natural light. Access to a communal rooftop terrace.
+
+Neighborhood: Vibrant neighborhood known for its diverse nightlife and street art scene. Close to famous restaurants and trendy boutiques. Easy access to public transportation.
+
+
+New Listing:
+
+Location: Friedrichshain, Berlin
+Price: €800,000
+Bedrooms: 3
+Bathrooms: 2
+Size: 110 sqm
+
+Description: Newly renovated townhouse with a spacious living area and modern kitchen. Private garden and garage for parking. High-speed internet connection available.
+
+Neighborhood: Hip neighborhood with a mix of old and new architecture. Close to green spaces and trendy cafes. Bicycle-friendly area with easy access to public transportation.
+
+
+New Listing:
+
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Bedrooms: 5
+Bathrooms: 3
+Size: 180 sqm
+
+Description: Elegant family home with classic design features and a landscaped garden. Formal dining room and home office space. Jacuzzi in the master bathroom.
+
+Neighborhood: Upscale area with high-end boutiques and gourmet restaurants. Close to parks and cultural attractions. Excellent international schools nearby.
+--------------------------------------------------
+
+Listing 5:
+Location: Kreuzberg, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1
+Size: 100 sqm
+
+Description: Cozy loft-style apartment with exposed brick walls and industrial accents. Open plan living area with a modern kitchen. Large windows provide plenty of natural light. 
+
+Neighborhood: Vibrant area known for its street art and nightlife. Close to popular cafes, restaurants, and galleries. Walking distance to the U-bhan station.
+
+
+
+Location: Friedrichshain, Berlin
+Price: €800,000
+Bedrooms: 3
+Bathrooms: 2
+Size: 130 sqm
+
+Description: Modern duplex penthouse with a rooftop terrace and skyline views. Spacious bedrooms with built-in closets. Stylish bathrooms with rain showers. Parking garage included.
+
+Neighborhood: Hip neighborhood with a mix of old and new architecture. Close to the East Side Gallery and local markets. Easy access to public transportation.
+
+
+
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Bedrooms: 3
+Bathrooms: 2
+Size: 160 sqm
+
+Description: Elegant Altbau apartment with classic features and original parquet floors. Large living room with a fireplace and bay windows. Renovated kitchen with high-end appliances. 
+
+Neighborhood: Upscale area with luxury boutiques and fine dining restaurants. Close to Tiergarten park and the Charlottenburg Palace. Convenient access to public transport options.
+
+
+
+Location: Neukölln, Berlin
+Price: €450,000
+Bedrooms: 2
+Bathrooms: 1
+Size: 85 sqm
+
+Description: Bright and airy flat with a modern design and Scandinavian-inspired decor. Balcony overlooking a quiet courtyard. Secure bicycle storage and communal garden.
+
+Neighborhood: Diverse district with a mix of cultures and cuisines. A short walk to Tempelhofer Feld park and the Landwehr Canal. Close to the U-bhan and bus stops.
+--------------------------------------------------
+
+Listing 6:
+Location: Kreuzberg, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1.5
+Size: 100 sqm
+
+Description: Cozy loft-style apartment with industrial chic design. Open floor plan with exposed brick walls and large windows. Rooftop terrace with views of the city skyline. 
+
+Neighborhood: Vibrant neighborhood known for its art galleries and food scene. Walking distance to trendy cafes and bars. Easy access to public transportation.
+
+
+
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Bedrooms: 3
+Bathrooms: 2
+Size: 130 sqm
+
+Description: Elegant family home with classic architecture and modern interiors. Spacious living areas with fireplace and hardwood floors. Private garden with patio for outdoor entertaining.
+
+Neighborhood: Upscale area with luxury boutiques and fine dining. Close to green spaces like Tiergarten park. Excellent schools and cultural attractions nearby.
+
+
+
+Location: Friedrichshain, Berlin
+Price: €800,000
+Bedrooms: 2
+Bathrooms: 1
+Size: 90 sqm
+
+Description: Stylish urban apartment with a sleek contemporary design. Open-plan kitchen and living area with floor-to-ceiling windows. Balcony overlooking the city skyline.
+
+Neighborhood: Hip neighborhood with a lively nightlife and street art scene. Easy access to East Side Gallery and RAW Gelände. Close to public transportation options and bike paths.
+--------------------------------------------------
+
+Listing 7:
+Location: Friedrichshain, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1
+Size: 100 sqm
+
+Description: Modern loft-style apartment with industrial chic design. Open concept living and dining area with exposed brick walls. Large windows provide plenty of natural light. Renovated kitchen with stainless steel appliances.
+
+Neighborhood: Vibrant area known for its lively nightlife and creative scene. Close to popular cafes, restaurants, and shops. Easy access to public transportation with the U-bahn and bus stops nearby.
+--------------------------------------------------
+
+Listing 8:
+Location: Friedrichshain, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1.5
+Size: 100 sqm
+
+Description: Modern loft-style apartment in a converted industrial building. Open-plan layout with exposed brick walls and large windows. Rooftop terrace with views of the city skyline. 
+
+Neighborhood: Vibrant area known for its nightlife and street art. Close to public transportation, trendy shops, and restaurants. Park and bike paths nearby.
+
+
+
+Location: Kreuzberg, Berlin
+Price: €800,000
+Bedrooms: 3
+Bathrooms: 2
+Size: 130 sqm
+
+Description: Spacious family home with a private garden and outdoor patio. Renovated kitchen with top-of-the-line appliances. Large living room with fireplace. Garage for two cars.
+
+Neighborhood: Diverse neighborhood with a mix of cultures. Close to local markets, cafes, and galleries. Easy access to public transportation and parks.
+
+
+
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Bedrooms: 4
+Bathrooms: 3
+Size: 180 sqm
+
+Description: Elegant townhouse with a private courtyard and garden. Classic features including parquet floors and decorative moldings. Updated kitchen and bathrooms. Attic space for storage.
+
+Neighborhood: Upscale area with tree-lined streets and boutique shops. Close to luxury shopping on Kurfürstendamm. Excellent schools and cultural institutions nearby. Easy access to public transportation.
+
+
+
+Location: Wedding, Berlin
+Price: €500,000
+Bedrooms: 2
+Bathrooms: 1
+Size: 90 sqm
+
+Description: Bright and airy apartment with a modern kitchen and balcony. Large windows provide plenty of natural light. Renovated bathroom with a bathtub. Storage space in the basement.
+
+Neighborhood: Up-and-coming area with affordable housing options. Close to restaurants, cafes, and local markets. Easy access to public transportation and green spaces.
+--------------------------------------------------
+
+Listing 9:
+Location: Kreuzberg, Berlin
+Price: €800,000
+Bedrooms: 3
+Bathrooms: 1.5
+Size: 100 sqm
+
+Description: Stylish loft-style apartment with exposed brick walls and industrial accents. Spacious living area with open kitchen. Large windows provide plenty of natural light. Shared rooftop terrace.
+
+Neighborhood: Vibrant district known for its cultural scene and street art. Close to trendy bars, restaurants, and galleries. The nearest U-bhan station is a 15-minute walk away. Tram stop nearby.
+--------------------------------------------------
+
+Listing 10:
+Location: Kreuzberg, Berlin
+Price: €600,000
+Bedrooms: 3
+Bathrooms: 1.5
+Size: 100 sqm
+
+Description: Stylish loft-style apartment with industrial-chic design. Open-plan living space with exposed brick walls and large windows. Renovated kitchen with high-end appliances. Courtyard views.
+
+Neighborhood: Vibrant area known for its street art and nightlife. Close to restaurants, bars, and cultural venues. Easy access to public transportation and bike paths.
+--------------------------------------------------
+INFO:__main__:Loading data...
+INFO:__main__:Generating embeddings...
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device_name: cuda
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  4.70it/s]
+INFO:listings_vector_database:Embeddings shape: (10, 384)
+INFO:listings_vector_database:Embeddings dtype: float32
+INFO:__main__:Storing data in LanceDB...
+[2025-01-15T18:13:00Z WARN  lance::dataset] No existing dataset at /home/nav/Projects_1/GenAI/RealestateAgent/Realestateagent/lance_db/listings.lance, it will be created
+INFO:listings_vector_database:Created table with 10 records
+
+Original Dataset:
+        ID                Location       Price  Bedrooms  Bathrooms      Size                                        Description                                       Neighborhood New Listing
+0  BER0001  Charlottenburg, Berlin  €1,200,000         3        2.0  160 sqm   Elegant pre-war mansion with a private garden ...  Upscale area with tree-lined streets and luxur...         NaN
+1  BER0002  Friedrichshain, Berlin    €600,000         3        1.0  100 sqm   Cozy family home with spacious living areas an...  Vibrant area known for its nightlife and creat...         NaN
+2  BER0003       Kreuzberg, Berlin    €600,000         3        1.5  100 sqm   Stylish loft apartment in a converted industri...  Vibrant area known for its street art, nightli...         NaN
+3  BER0004  Charlottenburg, Berlin  €1,200,000         5        3.0  180 sqm   Elegant family home with classic design featur...  Upscale area with high-end boutiques and gourm...            
+4  BER0005        Neukölln, Berlin    €450,000         2        1.0   85 sqm   Bright and airy flat with a modern design and ...  Diverse district with a mix of cultures and cu...         NaN
+5  BER0006  Friedrichshain, Berlin    €800,000         2        1.0   90 sqm   Stylish urban apartment with a sleek contempor...  Hip neighborhood with a lively nightlife and s...         NaN
+6  BER0007  Friedrichshain, Berlin    €600,000         3        1.0  100 sqm   Modern loft-style apartment with industrial ch...  Vibrant area known for its lively nightlife an...         NaN
+7  BER0008         Wedding, Berlin    €500,000         2        1.0   90 sqm   Bright and airy apartment with a modern kitche...  Up-and-coming area with affordable housing opt...         NaN
+8  BER0009       Kreuzberg, Berlin    €800,000         3        1.5  100 sqm   Stylish loft-style apartment with exposed bric...  Vibrant district known for its cultural scene ...         NaN
+9  BER0010       Kreuzberg, Berlin    €600,000         3        1.5  100 sqm   Stylish loft-style apartment with industrial-c...  Vibrant area known for its street art and nigh...         NaN
+
+Embeddings (10x10):
+[[ 0.0884887   0.03711043 -0.02736243  0.02040456 -0.09349953  0.04150788
+  -0.0448796   0.01162658 -0.02840971  0.0030575 ]
+ [ 0.11170676  0.03899266  0.03698147  0.03662691  0.00462603  0.04212339
+  -0.03791538  0.01343901 -0.04314309 -0.05097016]
+ [ 0.10523261  0.02985618  0.00822681  0.07121067 -0.0388736   0.05906816
+  -0.00786291  0.00851906 -0.04172273 -0.02041262]
+ [ 0.06118361 -0.00665433 -0.0217412   0.04936396 -0.09614974  0.02824631
+  -0.03381089  0.05475525 -0.04279096 -0.060543  ]
+ [ 0.06206325  0.07159294 -0.0266882   0.05226124 -0.03718031  0.02182525
+   0.02113159  0.09866393 -0.00763136 -0.02813379]
+ [ 0.09209722  0.04687962  0.06158559  0.03631872 -0.04977043  0.05448725
+  -0.00787231  0.06351934 -0.03638342 -0.02897893]
+ [ 0.09274454  0.03703749  0.06425407  0.05591913 -0.01413689  0.03406223
+  -0.03478551  0.01247243 -0.07074709 -0.03343971]
+ [ 0.1061844  -0.01024316  0.06881681  0.06559122 -0.04811406  0.05801728
+   0.01226188  0.05084674 -0.03936141  0.01282623]
+ [ 0.07604699  0.02438055 -0.02511528  0.05222265 -0.03529941  0.07635476
+  -0.01497881  0.0057199  -0.04688766 -0.03697651]
+ [ 0.10391596  0.02393851 -0.00383199  0.06512307 -0.04758499  0.06557402
+   0.00200392  0.02271165 -0.03119313  0.00037227]]
+
+Entries from LanceDB:
+   id                                          embedding                                        description       price                location bedrooms bathrooms      size                                       neighborhood
+0   0  [0.0884887, 0.03711043, -0.027362434, 0.020404...  Elegant pre-war mansion with a private garden ...  €1,200,000  Charlottenburg, Berlin        3       2.0  160 sqm   Upscale area with tree-lined streets and luxur...
+1   1  [0.111706756, 0.03899266, 0.03698147, 0.036626...  Cozy family home with spacious living areas an...    €600,000  Friedrichshain, Berlin        3       1.0  100 sqm   Vibrant area known for its nightlife and creat...
+2   2  [0.10523261, 0.029856184, 0.008226806, 0.07121...  Stylish loft apartment in a converted industri...    €600,000       Kreuzberg, Berlin        3       1.5  100 sqm   Vibrant area known for its street art, nightli...
+3   3  [0.061183613, -0.0066543277, -0.0217412, 0.049...  Elegant family home with classic design featur...  €1,200,000  Charlottenburg, Berlin        5       3.0  180 sqm   Upscale area with high-end boutiques and gourm...
+4   4  [0.062063254, 0.07159294, -0.026688198, 0.0522...  Bright and airy flat with a modern design and ...    €450,000        Neukölln, Berlin        2       1.0   85 sqm   Diverse district with a mix of cultures and cu...
+5   5  [0.092097215, 0.04687962, 0.06158559, 0.036318...  Stylish urban apartment with a sleek contempor...    €800,000  Friedrichshain, Berlin        2       1.0   90 sqm   Hip neighborhood with a lively nightlife and s...
+6   6  [0.09274454, 0.037037488, 0.06425407, 0.055919...  Modern loft-style apartment with industrial ch...    €600,000  Friedrichshain, Berlin        3       1.0  100 sqm   Vibrant area known for its lively nightlife an...
+7   7  [0.1061844, -0.010243156, 0.06881681, 0.065591...  Bright and airy apartment with a modern kitche...    €500,000         Wedding, Berlin        2       1.0   90 sqm   Up-and-coming area with affordable housing opt...
+8   8  [0.07604699, 0.024380546, -0.025115278, 0.0522...  Stylish loft-style apartment with exposed bric...    €800,000       Kreuzberg, Berlin        3       1.5  100 sqm   Vibrant district known for its cultural scene ...
+9   9  [0.10391596, 0.023938507, -0.003831995, 0.0651...  Stylish loft-style apartment with industrial-c...    €600,000       Kreuzberg, Berlin        3       1.5  100 sqm   Vibrant area known for its street art and nigh...
+INFO:userinterface_and_search:Connected to database
+Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 70.17it/s]
+Batches: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 123.54it/s]
+Batches: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 160.09it/s]
+Batches: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 166.80it/s]
+Batches: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 177.63it/s]
+
+=== ALL PROPERTIES RATINGS ===
+
+Property ID: 7
+Location: Wedding, Berlin
+Price: €500,000
+Size: 90 sqm 
+Bedrooms: 2
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Size: 1/5
+- Location: 1/5
+- Amenities: 1/5
+- Transport: 1/5
+- Urban: 1/5
+OVERALL RATING: 4/5
+------------------------------
+
+Property ID: 1
+Location: Friedrichshain, Berlin
+Price: €600,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Size: 1/5
+- Location: 1/5
+- Amenities: 1/5
+- Urban: 1/5
+OVERALL RATING: 4/5
+------------------------------
+
+Property ID: 3
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Size: 180 sqm 
+Bedrooms: 5
+Bathrooms: 3.0
+
+Category Ratings (1-5):
+- Size: 1/5
+- Location: 1/5
+- Amenities: 1/5
+OVERALL RATING: 3/5
+------------------------------
+
+Property ID: 9
+Location: Kreuzberg, Berlin
+Price: €600,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.5
+
+Category Ratings (1-5):
+- Size: 1/5
+- Amenities: 1/5
+OVERALL RATING: 2/5
+------------------------------
+
+Property ID: 5
+Location: Friedrichshain, Berlin
+Price: €800,000
+Size: 90 sqm 
+Bedrooms: 2
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Location: 1/5
+- Transport: 1/5
+- Urban: 1/5
+OVERALL RATING: 2/5
+------------------------------
+
+Property ID: 8
+Location: Kreuzberg, Berlin
+Price: €800,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.5
+
+Category Ratings (1-5):
+- Location: 1/5
+- Transport: 1/5
+OVERALL RATING: 2/5
+------------------------------
+
+Property ID: 0
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Size: 160 sqm 
+Bedrooms: 3
+Bathrooms: 2.0
+
+Category Ratings (1-5):
+- Size: 1/5
+OVERALL RATING: 1/5
+------------------------------
+
+Property ID: 2
+Location: Kreuzberg, Berlin
+Price: €600,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.5
+
+Category Ratings (1-5):
+- Amenities: 1/5
+- Urban: 1/5
+OVERALL RATING: 1/5
+------------------------------
+
+Property ID: 4
+Location: Neukölln, Berlin
+Price: €450,000
+Size: 85 sqm 
+Bedrooms: 2
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Transport: 1/5
+OVERALL RATING: 1/5
+------------------------------
+
+Property ID: 6
+Location: Friedrichshain, Berlin
+Price: €600,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Transport: 1/5
+- Urban: 1/5
+OVERALL RATING: 1/5
+------------------------------
+
+==================================================
+              TOP 3 RECOMMENDATIONS               
+==================================================
+
+1. RECOMMENDED PROPERTY
+--------------------
+Property ID: 7
+Location: Wedding, Berlin
+Price: €500,000
+Size: 90 sqm 
+Bedrooms: 2
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Size: 1/5
+- Location: 1/5
+- Amenities: 1/5
+- Transport: 1/5
+- Urban: 1/5
+
+OVERALL RATING: 4/5
+==================================================
+
+2. RECOMMENDED PROPERTY
+--------------------
+Property ID: 1
+Location: Friedrichshain, Berlin
+Price: €600,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.0
+
+Category Ratings (1-5):
+- Size: 1/5
+- Location: 1/5
+- Amenities: 1/5
+- Urban: 1/5
+
+OVERALL RATING: 4/5
+==================================================
+
+3. RECOMMENDED PROPERTY
+--------------------
+Property ID: 3
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Size: 180 sqm 
+Bedrooms: 5
+Bathrooms: 3.0
+
+Category Ratings (1-5):
+- Size: 1/5
+- Location: 1/5
+- Amenities: 1/5
+
+OVERALL RATING: 3/5
+==================================================
+[2025-01-15T18:13:00Z WARN  lance::dataset] No existing dataset at /home/nav/Projects_1/GenAI/RealestateAgent/Realestateagent/lance_db/top_recommendations.lance, it will be created
+INFO:personalising_listings:Connected to database
+INFO:personalising_listings:Generated preference context
+
+Top Property Recommendations:
+================================================================================
+
+Property #1
+----------------------------------------
+Location: Wedding, Berlin
+Price: €500,000
+Size: 90 sqm 
+Bedrooms: 2
+Bathrooms: 1.0
+
+Original Description:
+Bright and airy apartment with a modern kitchen and balcony. Large windows provide plenty of natural light. Renovated bathroom with a bathtub. Storage space in the basement. 
+
+Original Neighborhood Description:
+Up-and-coming area with affordable housing options. Close to restaurants, cafes, and local markets. Easy access to public transportation and green spaces.
+
+Personalized Description:
+Located in the vibrant neighborhood of Wedding in Berlin, this 90 sqm apartment offers a bright and airy living space with two bedrooms and a modern kitchen. The large windows flood the apartment with natural light, creating a welcoming atmosphere. Step out onto the balcony to enjoy the views of the surrounding area. The renovated bathroom features a bathtub for relaxation. Additional storage space is available in the basement. Situated in an up-and-coming area with affordable housing options, this property is close to a variety of restaurants, cafes, and local markets. Residents will appreciate the easy access to public transportation and nearby green spaces for leisurely strolls or outdoor activities.
+--------------------------------------------------------------------------------
+
+Property #2
+----------------------------------------
+Location: Friedrichshain, Berlin
+Price: €600,000
+Size: 100 sqm 
+Bedrooms: 3
+Bathrooms: 1.0
+
+Original Description:
+Cozy family home with spacious living areas and lots of natural light. Recently renovated kitchen and bathroom. Private backyard garden perfect for entertaining. 
+
+Original Neighborhood Description:
+Vibrant area known for its nightlife and creative scene. Close to public transportation, parks, and trendy cafes. Grocery stores and restaurants within walking distance.
+
+Personalized Description:
+Located in the vibrant Friedrichshain neighborhood of Berlin, this charming family home offers 100 sqm of living space with 3 bedrooms and 1.0 bathroom. The property features spacious living areas flooded with natural light, a recently renovated kitchen, and bathroom. Perfect for entertaining, the home boasts a private backyard garden. Situated in a lively area known for its nightlife and creative scene, residents can enjoy easy access to public transportation, parks, trendy cafes, grocery stores, and restaurants within walking distance. Don't miss the opportunity to own this cozy retreat in a bustling and convenient location.
+--------------------------------------------------------------------------------
+
+Property #3
+----------------------------------------
+Location: Charlottenburg, Berlin
+Price: €1,200,000
+Size: 180 sqm 
+Bedrooms: 5
+Bathrooms: 3.0
+
+Original Description:
+Elegant family home with classic design features and a landscaped garden. Formal dining room and home office space. Jacuzzi in the master bathroom. 
+
+Original Neighborhood Description:
+Upscale area with high-end boutiques and gourmet restaurants. Close to parks and cultural attractions. Excellent international schools nearby.
+
+Personalized Description:
+Located in the prestigious Charlottenburg neighborhood of Berlin, this elegant family home spans 180 sqm and boasts 5 bedrooms and 3 bathrooms. The property features classic design elements and a beautifully landscaped garden, perfect for outdoor relaxation. Inside, you'll find a formal dining room for entertaining guests and a dedicated home office space for remote work. The master bathroom is equipped with a luxurious Jacuzzi for ultimate relaxation. Situated in an upscale area with high-end boutiques and gourmet restaurants, the property is also close to parks and cultural attractions. Families will appreciate the excellent international schools in the vicinity, making this home an ideal choice for those seeking both luxury and convenience in a sought-after location.
+--------------------------------------------------------------------------------
