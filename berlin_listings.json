@@ -1,102 +1,102 @@
 [
     {
         "ID": "BER0001",
-        "Location": "Friedrichshain, Berlin",
-        "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "90 sqm ",
-        "Description": "Modern loft-style apartment with industrial chic design. Open concept living space with floor-to-ceiling windows. Spacious rooftop terrace with city views. Secure bike storage included. ",
-        "Neighborhood": "Vibrant area with trendy bars and restaurants. Close to Volkspark Friedrichshain and the East Side Gallery. Tram stop and bike path nearby."
-    },
-    {
-        "ID": "BER0002",
-        "Location": "Kreuzberg, Berlin",
-        "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "90 sqm ",
-        "Description": "Modern loft-style apartment with industrial-chic design. Open concept living space with exposed brick walls and concrete floors. Large windows offer plenty of natural light. Private rooftop terrace. ",
-        "Neighborhood": "Vibrant neighborhood with a diverse culinary scene and street art. Walking distance to the famous East Side Gallery and Görlitzer Park. Bus and metro stations nearby."
-    },
-    {
-        "ID": "BER0003",
-        "Location": "Kreuzberg, Berlin",
-        "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "90 sqm ",
-        "Description": "Modern loft-style apartment with industrial chic design. Open floor plan with exposed brick walls and high ceilings. Large windows with city views. Rooftop terrace for entertaining. ",
-        "Neighborhood": "Vibrant area with street art, hip cafes, and nightlife. Close to the Spree River and parks. Easy access to public transportation and bike paths."
-    },
-    {
-        "ID": "BER0004",
-        "Location": "Neukölln, Berlin",
+        "Location": "Wedding, Berlin",
         "Price": "€500,000",
         "Bedrooms": "2",
         "Bathrooms": "1",
         "Size": "90 sqm ",
-        "Description": "Modern loft-style apartment with industrial design features. Open concept living space with exposed brick walls and high ceilings. Large windows with plenty of natural light. ",
-        "Neighborhood": "Up-and-coming area with a vibrant arts and culture scene. Close to trendy bars, restaurants, and galleries. Easy access to public transportation."
+        "Description": "Cozy apartment in a historic building with original hardwood floors and vintage fixtures. Bright and airy living spaces with a bay window. Renovated kitchen and bathroom. ",
+        "Neighborhood": "Diverse district with markets, cafes, and cultural attractions. Close to public transportation options and green spaces for outdoor activities."
+    },
+    {
+        "ID": "BER0002",
+        "Location": "Friedrichshain, Berlin",
+        "Price": "€600,000",
+        "Bedrooms": "3",
+        "Bathrooms": "1.5",
+        "Size": "100 sqm ",
+        "Description": "Modern loft-style apartment with industrial chic design. Open plan living area with exposed brick walls. Large windows provide plenty of natural light. Balcony overlooking the city skyline. ",
+        "Neighborhood": "Vibrant area known for its nightlife and street art. Close to Boxhagener Platz with its weekend flea market. Easy access to public transportation and a variety of restaurants and cafes."
+    },
+    {
+        "ID": "BER0003",
+        "Location": "Friedrichshain, Berlin",
+        "Price": "€600,000",
+        "Bedrooms": "3",
+        "Bathrooms": "1.5",
+        "Size": "100 sqm ",
+        "Description": "Modern loft-style apartment with industrial design elements. Open-concept living space with exposed brick walls. Spacious rooftop terrace with views of the city. On-site gym and bicycle storage. ",
+        "Neighborhood": "Vibrant area known for its street art and nightlife. Close to popular cafes, restaurants, and boutique shops. Easy access to public transportation with the U-bahn station nearby."
+    },
+    {
+        "ID": "BER0004",
+        "Location": "Charlottenburg, Berlin",
+        "Price": "€1,200,000",
+        "Bedrooms": "4",
+        "Bathrooms": "3",
+        "Size": "180 sqm ",
+        "Description": "Elegant family home with classic design and spacious rooms. Updated kitchen with high-end appliances. Formal dining room and cozy library. Landscaped garden and garage included. ",
+        "Neighborhood": "Upscale residential area with tree-lined streets and fine dining options. Close to shopping boulevards and cultural attractions. Easy access to public transportation and schools."
     },
     {
         "ID": "BER0005",
-        "Location": "Friedrichshain, Berlin",
-        "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "90 sqm ",
-        "Description": "Modern loft-style apartment with industrial design features and exposed brick walls. Open plan living space with large windows. Rooftop terrace with views of the city skyline. ",
-        "Neighborhood": "Vibrant area known for its nightlife and cultural scene. Close to restaurants, bars, and shops. Easy access to public transportation with the U-bahn and S-bahn stations nearby."
+        "Location": "Charlottenburg, Berlin",
+        "Price": "€1,200,000",
+        "Bedrooms": "3",
+        "Bathrooms": "2",
+        "Size": "160 sqm ",
+        "Description": "Elegant Art Nouveau apartment with classic features and a fireplace. Spacious rooms with parquet floors and ornate ceilings. Private balcony overlooking a leafy courtyard. ",
+        "Neighborhood": "Upscale district with boutique shops, restaurants, and theaters. Close to the famous Ku'damm shopping street. Excellent public transport connections nearby."
     },
     {
         "ID": "BER0006",
-        "Location": "Kreuzberg, Berlin",
-        "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "100 sqm ",
-        "Description": "Modern loft-style apartment with industrial chic design. Open floor plan with exposed brick walls and high ceilings. Large windows offer plenty of natural light. Underground parking included. ",
-        "Neighborhood": "Vibrant area known for its street art and diverse food scene. Close to public transportation with the U-bahn station a 10-minute walk away. Trendy boutiques and cafes nearby."
+        "Location": "Charlottenburg, Berlin",
+        "Price": "€1,200,000",
+        "Bedrooms": "5",
+        "Bathrooms": "3",
+        "Size": "180 sqm ",
+        "Description": "Elegant and spacious family home with a grand entrance hall and classic design features. Large formal dining room and gourmet kitchen. Master suite with walk-in closet and luxurious bathroom. Beautiful garden with a terrace for outdoor entertaining. ",
+        "Neighborhood": "Upscale and historic neighborhood with tree-lined streets and boutique shops. Close to Schloss Charlottenburg and Tiergarten park. Easy access to public transportation and highways."
     },
     {
         "ID": "BER0007",
-        "Location": "Kreuzberg, Berlin",
+        "Location": "Friedrichshain, Berlin",
         "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
+        "Bedrooms": "3",
+        "Bathrooms": "1.5",
         "Size": "100 sqm ",
-        "Description": "Bright and spacious loft-style apartment with exposed brick walls and industrial chic design. Open floor plan with a modern kitchen and large windows. Rooftop terrace with city views. ",
-        "Neighborhood": "Vibrant area known for its art galleries, restaurants, and nightlife. Close to the Spree River and popular parks. U-bahn and bus stops nearby."
+        "Description": "Modern loft-style apartment with industrial features and exposed brick walls. Open-concept living space with oversized windows. Large rooftop terrace for outdoor entertaining. ",
+        "Neighborhood": "Vibrant area known for its nightlife and cultural scene. Close to restaurants, bars, and galleries. Easy access to public transportation with multiple bus and tram stops nearby."
     },
     {
         "ID": "BER0008",
         "Location": "Friedrichshain, Berlin",
         "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "90 sqm ",
-        "Description": "Modern loft-style apartment with industrial-chic design. Open concept living space with exposed brick walls and high ceilings. Large windows provide plenty of natural light. Private rooftop terrace. ",
-        "Neighborhood": "Vibrant area known for its nightlife and street art. Close to popular bars, restaurants, and boutiques. Easy access to public transportation with the U-bahn and tram stops nearby."
+        "Bedrooms": "3",
+        "Bathrooms": "1.5",
+        "Size": "100 sqm ",
+        "Description": "Modern loft-style apartment with industrial design features. Open-concept living space with high ceilings and large windows. Private rooftop terrace with views of the city skyline. ",
+        "Neighborhood": "Vibrant neighborhood known for its nightlife and creative scene. Close to popular cafes, restaurants, and shops. Easy access to public transportation options."
     },
     {
         "ID": "BER0009",
-        "Location": "Kreuzberg, Berlin",
-        "Price": "€600,000",
-        "Bedrooms": "2",
-        "Bathrooms": "1",
-        "Size": "100 sqm ",
-        "Description": "Stylish loft apartment with industrial design features and exposed brick walls. Open-plan layout with high ceilings and plenty of natural light. Large windows overlooking the city skyline. ",
-        "Neighborhood": "Vibrant area known for its arts and culture scene. Close to trendy bars, restaurants, and galleries. Easy access to public transportation with multiple bus and U-bahn stops nearby."
+        "Location": "Charlottenburg, Berlin",
+        "Price": "€1,200,000",
+        "Bedrooms": "3",
+        "Bathrooms": "2",
+        "Size": "160 sqm ",
+        "Description": "Elegant and sophisticated apartment in a historic building. Classic design with parquet floors and ornate moldings. Modern kitchen with top-of-the-line appliances. Balcony overlooking a lush garden. ",
+        "Neighborhood": "Upscale area with luxury boutiques and fine dining restaurants. Close to Schloss Charlottenburg and Tiergarten park. Easy access to public transportation."
     },
     {
         "ID": "BER0010",
-        "Location": "Kreuzberg, Berlin",
-        "Price": "€600,000",
+        "Location": "Friedrichshain, Berlin",
+        "Price": "€700,000",
         "Bedrooms": "2",
         "Bathrooms": "1",
         "Size": "90 sqm ",
-        "Description": "Stylish loft apartment with industrial-chic design. Open floor plan with exposed brick walls and high ceilings. Modern kitchen with stainless steel appliances. Large windows provide plenty of natural light. ",
-        "Neighborhood": "Vibrant area known for its street art and eclectic dining scene. Close to public transportation, with the U-bahn station just a 5-minute walk away. Trendy boutiques and galleries in the vicinity."
+        "Description": "Contemporary urban apartment with sleek finishes and minimalist design. Spacious living area with floor-to-ceiling windows. Balcony overlooking the city skyline. ",
+        "Neighborhood": "Hip neighborhood with a mix of old and new architecture. Many cafes, art galleries, and music venues nearby. Close to the East Side Gallery and the popular Boxhagener Platz flea market."
     }
 ]

@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 import warnings
 import logging
 import lancedb
@@ -13,19 +12,23 @@ import shutil
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Ignore warnings
 warnings.filterwarnings('ignore')
+
 def load_and_prepare_data(file_path='berlin_listings.json'):
     try:
+        # Load data from JSON file
         df = pd.read_json(file_path)
+        
+        # Define required columns
         required_columns = ['Description', 'Location', 'Price', 'Bedrooms', 'Bathrooms', 'Size', 'Neighborhood']
         
         # Validate columns
         missing_cols = [col for col in required_columns if col not in df.columns]
         if missing_cols:
             raise ValueError(f"Missing required columns: {missing_cols}")
-            
-        # # Add numeric ID
-        # df['id'] = range(1, len(df) + 1)
+        
+        # Return the dataframe
         return df
         
     except FileNotFoundError:
@@ -37,59 +40,58 @@ def load_and_prepare_data(file_path='berlin_listings.json'):
 
 def create_embeddings(df):
     try:
+        # Load pre-trained SentenceTransformer model
         model = SentenceTransformer('all-MiniLM-L6-v2')
         
-        # Combine text fields
+        # Combine text fields into a single string for each row
         text_data = (
             df['Description'].fillna('') + ' ' + 
             df['Location'].fillna('') + ' ' + 
-            df['Neighborhood'].fillna('')
+            df['Neighborhood'].fillna('') + ' ' +
+            df['Bedrooms'].fillna('').astype(str) + ' '
         )
         
         # Validate input text
         if text_data.empty or text_data.isna().all():
             raise ValueError("No valid text data to encode")
-            
+        
         # Generate embeddings
         embeddings = model.encode(text_data.tolist(), normalize_embeddings=True)
         
-        # Convert to float32 and verify shape
+        # Convert embeddings to float32
         embeddings = embeddings.astype(np.float32)
         
-        # Additional validations
+        # Validate embeddings shape
         if embeddings.shape[0] != len(df):
             raise ValueError(f"Embedding count ({embeddings.shape[0]}) doesn't match dataframe length ({len(df)})")
         
+        # Validate embedding dimensions
         if embeddings.shape[1] != 384:  # all-MiniLM-L6-v2 produces 384-dimensional vectors
             raise ValueError(f"Unexpected embedding dimension: {embeddings.shape[1]}")
-            
+        
+        # Log embeddings information
         logger.info(f"Embeddings shape: {embeddings.shape}")
         logger.info(f"Embeddings dtype: {embeddings.dtype}")
         
+        # Check for NaN values in embeddings
         if np.isnan(embeddings).any():
             raise ValueError("Embeddings contain NaN values")
-            
+        
+        # Return embeddings
         return embeddings
         
     except Exception as e:
         logger.error(f"Error creating embeddings: {str(e)}")
         raise
 
-# def calculate_similarities(embeddings):
-#     try:
-#         similarity_matrix = cosine_similarity(embeddings)
-#         return similarity_matrix
-#     except Exception as e:
-#         logger.error(f"Error calculating similarities: {str(e)}")
-#         raise
-
 def store_in_lancedb(df, embeddings):
     """Store listings with vector embeddings"""
     try:
+        # Get current directory and set database path
         current_dir = os.path.dirname(os.path.abspath(__file__))
         db_path = os.path.join(current_dir, 'lance_db')
 
-        # Clear existing DB
+        # Clear existing database if it exists
         if os.path.exists(db_path):
             shutil.rmtree(db_path)
         os.makedirs(db_path, exist_ok=True)
@@ -103,10 +105,11 @@ def store_in_lancedb(df, embeddings):
             pa.field("location", pa.string()),
             pa.field("bedrooms", pa.string()),
             pa.field("bathrooms", pa.string()),
-            pa.field("size", pa.string())
+            pa.field("size", pa.string()),
+            pa.field("neighborhood", pa.string())
         ])
 
-        # Create records
+        # Create records from dataframe and embeddings
         records = []
         for idx, row in df.iterrows():
             record = {
@@ -117,11 +120,12 @@ def store_in_lancedb(df, embeddings):
                 "location": row['Location'],
                 "bedrooms": str(row['Bedrooms']),
                 "bathrooms": str(row['Bathrooms']),
-                "size": str(row['Size'])
+                "size": str(row['Size']),
+                "neighborhood": row['Neighborhood']
             }
             records.append(record)
 
-        # Create table with schema
+        # Connect to LanceDB and create table with schema
         db = lancedb.connect(db_path)
         table = db.create_table(
             "listings",
@@ -130,55 +134,12 @@ def store_in_lancedb(df, embeddings):
             mode="overwrite"
         )
 
-        # # Create vector index
-        # table.create_index(
-        #     "embedding",
-        #     #metric_type="cosine",
-        #     replace=True
-        #)
-
+        # Log the number of records created
         logger.info(f"Created table with {len(records)} records")
+        
+        # Return the table
         return table
 
     except Exception as e:
         logger.error(f"Error storing data in LanceDB: {str(e)}")
         raise
-
-def main():
-    try:
-        logger.info("Loading data...")
-        df = load_and_prepare_data()
-        
-        logger.info("Generating embeddings...")
-        embeddings = create_embeddings(df)
-        
-        # logger.info("Calculating similarities...")
-        # similarity_matrix = calculate_similarities(embeddings)
-        
-        # similarity_df = pd.DataFrame(
-        #     similarity_matrix,
-        #     #index=df['id'],
-        #     #columns=df['id']
-        # )
-
-        logger.info("Storing data in LanceDB...")
-        lancedb_table = store_in_lancedb(df, embeddings)
-        lance_table_df = lancedb_table.to_pandas()
-        
-        print("\nOriginal Dataset:")
-        print(df)
-        print("\nEmbeddings (10x10):")
-        print(embeddings[:10, :10])
-        # print("\nSimilarity Matrix (10x10):")
-        # print(similarity_df.iloc[:10, :10])
-        print("\nEntries from LanceDB:")
-        print(lance_table_df)      
-                
-        # return similarity_df
-        
-    except Exception as e:
-        logger.error(f"Error in main: {str(e)}")
-        raise
-
-if __name__ == "__main__":
-    main()
